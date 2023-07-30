@@ -15,6 +15,7 @@
 #include <cxxopts.hpp>
 
 #include <interactive.h>
+#include <hooks.h>
 
 int main(int argc, char** argv);
 

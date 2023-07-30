@@ -8,4 +8,6 @@ include_directories(include)
 include_directories(vendor-libs/plog/include)
 include_directories(vendor-libs/cxxopts)
 
-add_executable(KeyLayout src/main.cpp src/interactive.cpp)
+add_executable(KeyLayout src/main.cpp
+        src/interactive.cpp
+        src/hooks.cpp)

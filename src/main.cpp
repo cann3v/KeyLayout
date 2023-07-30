@@ -10,8 +10,9 @@ int main(int argc, char** argv) {
 
     options.add_options()
         ("k,key", "Key to switch layout", cxxopts::value<int>())
-        ("i,interactive", "Enter to the interactive mode", cxxopts::value<bool>())
-        ("v,verbose", "Verbose output", cxxopts::value<bool>()->default_value("false"))
+        ("i,interactive", "Enter to the interactive mode")
+        ("d,daemon", "Run in daemon mode (no window)")
+        ("v,verbose", "Verbose output")
         ("h,help", "Print usage")
     ;
 
@@ -36,6 +37,8 @@ int main(int argc, char** argv) {
         PLOGF << "No key specified. Please see usage (-h/--help)";
         exit(1);
     }
+
+    SetHook(key);
 
     return 0;
 }
