@@ -6,7 +6,11 @@
 #define KEYLAYOUT_INTERACTIVE_H
 
 #include <iostream>
+#include <windows.h>
 
-void interactive_mode();
+#include <plog/Log.h>
+
+void interactive_mode(int key);
+void daemon_mode(int key);
 
 #endif //KEYLAYOUT_INTERACTIVE_H

@@ -26,16 +26,21 @@ int main(int argc, char** argv) {
     if (result.count("verbose"))
         plog::get()->setMaxSeverity(plog::verbose);
 
-    if (result.count("interactive")) {
-        PLOGV << "Entering interactive mode";
-        interactive_mode();
-    }
-
     if (result.count("key"))
         key = result["key"].as<int>();
     else {
         PLOGF << "No key specified. Please see usage (-h/--help)";
         exit(1);
+    }
+
+    if (result.count("daemon")) {
+        PLOGV << "Entering daemon mode";
+        daemon_mode(key);
+    }
+
+    if (result.count("interactive")) {
+        PLOGV << "Entering interactive mode";
+        interactive_mode(key);
     }
 
     SetHook(key);
