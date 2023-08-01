@@ -36,11 +36,13 @@ int main(int argc, char** argv) {
     if (result.count("daemon")) {
         PLOGV << "Entering daemon mode";
         daemon_mode(key);
+        exit(0);
     }
 
     if (result.count("interactive")) {
         PLOGV << "Entering interactive mode";
         interactive_mode(key);
+        exit(0);
     }
 
     SetHook(key);

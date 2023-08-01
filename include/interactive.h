@@ -12,5 +12,7 @@
 
 void interactive_mode(int key);
 void daemon_mode(int key);
+void autorunOn(int key);
+void autorunOff();
 
 #endif //KEYLAYOUT_INTERACTIVE_H
