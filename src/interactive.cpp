@@ -56,9 +56,13 @@ void daemon_mode(int key) {
 
 void autorunOn(int key) {
     char szPath[0x100];
-    GetModuleFileName(nullptr, szPath, sizeof(szPath));
+    char modulePath[0x100];
+    GetModuleFileName(nullptr, modulePath, sizeof(modulePath));
+    strcpy(szPath + 1, modulePath);
+    szPath[0] = '"';
+    szPath[strlen(modulePath) + 1] = '"';
     strcat(szPath, " -k ");
-    strcat(szPath, std::string(std::to_string(key)).c_str());
+    sprintf(szPath + strlen(szPath), "%d", key);
     strcat(szPath, " -d");
     PLOGV << "Command to execute: " << szPath;
 
