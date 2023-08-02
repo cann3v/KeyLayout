@@ -1,0 +1,4 @@
+[submodule "vendor-libs/plog"]
+	path = vendor-libs/plog
+	url = https://github.com/SergiusTheBest/plog.git
+	branch = master
